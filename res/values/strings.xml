@@ -26,11 +26,17 @@
     <string name="n_lec">No of Lectures/day</string>
     <string name="title_activity_create_time_table">CreateTimeTable</string>
     <string name="cr">Create</string>
-    <string name="t">TIME</string>
-    <string name="m">MONDAY</string>
-    <string name="tu">TUESDAY</string>
-    <string name="w">WEDNESDAY</string>
-    <string name="th">THURSDAY</string>
-    <string name="f">FRIDAY</string>
+    <string name="t">    TIME    </string>
+    <string name="m">    MONDAY    </string>
+    <string name="tu">    TUESDAY    </string>
+    <string name="w">    WEDNESDAY    </string>
+    <string name="th">    THURSDAY    </string>
+    <string name="f">    FRIDAY    </string>
+    <string name="ext">Notes</string>
+    <string name="title_activity_extra">Extra</string>
+    <string name="title_activity_attendance">Attendance</string>
+    <string name="title_activity_note">NoteActivity</string>
+    <string name="Sv">Save The Note</string>
+    <string name="yr">Your Time Table</string>
 
 </resources>

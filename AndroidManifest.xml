@@ -68,6 +68,18 @@
             android:name="com.example.eduhub.CreateTimeTable"
             android:label="@string/title_activity_create_time_table" >
         </activity>
+        <activity
+            android:name="com.example.eduhub.Extra"
+            android:label="@string/title_activity_extra" >
+        </activity>
+        <activity
+            android:name="com.example.eduhub.Attendance"
+            android:label="@string/title_activity_attendance" >
+        </activity>
+        <activity
+            android:name="com.example.eduhub.NoteActivity"
+            android:label="@string/title_activity_note" >
+        </activity>
     </application>
 
 </manifest>

@@ -17,7 +17,7 @@ public class NewTT extends Activity {
 	int Lec;
 	int Days;
 	public final static String EXTRA_MESSAGE = "com.example.eduhub.MESSAGE";
-	public final static String EXTRA_MESSAGE2 = "com.example.eduhub.MESSAGE";
+	public final static String INPUT_SERVICE = "abc";
 	Context c= this;
 	
 	@Override
@@ -32,10 +32,11 @@ public class NewTT extends Activity {
 					EditText et2 = (EditText) findViewById(R.id.nday);
 					String text1 = et1.getText().toString();
 					String text2 = et2.getText().toString();
-		    	    if (text1 == null || text1.equals("")||text2 == null || text2.equals("")) 
+					
+					if (text1 == null || text1.equals("")||text2 == null || text2.equals("")) 
 		    	    {
 		    	    	AlertDialog.Builder dlgAlert  = new AlertDialog.Builder(context);
-		                dlgAlert.setMessage("Numbers not entered");
+		                dlgAlert.setMessage("Enter Correct Values");
 		                dlgAlert.setTitle("Error Message!!!");
 		                dlgAlert.setPositiveButton("OK", null);
 		                dlgAlert.setCancelable(true);
@@ -48,15 +49,16 @@ public class NewTT extends Activity {
 		                    }
 		                });
 		            }
+					
 		    	    else
 		    	    {
 		    	    	Intent intent = new Intent( c , CreateTimeTable.class);
-		    	        EditText editText = (EditText) findViewById(R.id.nlec);
+		    	    	EditText editText = (EditText) findViewById(R.id.nlec);
 		    	        EditText editText2 = (EditText) findViewById(R.id.nday);
 		    	        String message = editText.getText().toString();
 		    	        String message2 = editText2.getText().toString();
-		    	        intent.putExtra(EXTRA_MESSAGE, message);
-		    	        intent.putExtra(EXTRA_MESSAGE2, message2);
+		    	        intent.putExtra(INPUT_SERVICE, message); // lecture
+		    	        intent.putExtra(EXTRA_MESSAGE,message2);  // Days
 		    	        startActivity(intent);
 			        }
 		         }

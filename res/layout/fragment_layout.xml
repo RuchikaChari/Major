@@ -35,18 +35,18 @@
   
     <!--  attendance Button--> 
     
-    <!--  <Button
+    <Button
         android:id="@+id/btn_att"
         style="@style/DashboardButton"
         android:drawableTop="@drawable/ic_check"
-        android:text="@string/att" /> -->
+        android:text="@string/att" />
         
 	<!--  extras Button-->
-   <!--  
+	 
     <Button
-        android:id="@+id/btn_photos"
+        android:id="@+id/btn_note"
         style="@style/DashboardButton"
-        android:drawableTop="@drawable/ic_check"
-        android:text="@string/att" /> --> 
+        android:drawableTop="@drawable/ic_note"
+        android:text="@string/ext" /> 
  
 </com.example.eduhub.DashboardLayout>

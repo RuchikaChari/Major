@@ -28,11 +28,11 @@ public class MainActivity extends Activity
     // Dashboard Places button
     Button btn_notification = (Button) findViewById(R.id.btn_not);
      
-    /* Dashboard Events button
-    Button btn_events = (Button) findViewById(R.id.btn_events);
+    // Dashboard Extra button
+    Button btn_extra = (Button) findViewById(R.id.btn_note);
      
-    // Dashboard Photos button
-    Button btn_photos = (Button) findViewById(R.id.btn_photos);
+    // Dashboard Attendance button
+    Button btn_att = (Button) findViewById(R.id.btn_att);
      
     /**
      * Handling all button click events
@@ -82,26 +82,26 @@ public class MainActivity extends Activity
         }
     });
      
-    /* Listening to Events button click
-    btn_events.setOnClickListener(new View.OnClickListener() {
+    // Listening to Extras button click
+    btn_extra.setOnClickListener(new View.OnClickListener() {
          
         @Override
         public void onClick(View view) {
             // Launching News Feed Screen
-            Intent i = new Intent(getApplicationContext(), EventsActivity.class);
+            Intent i = new Intent(getApplicationContext(), Extra.class);
             startActivity(i);
         }
     });
      
     // Listening to Photos button click
-    btn_photos.setOnClickListener(new View.OnClickListener() {
+    btn_att.setOnClickListener(new View.OnClickListener() {
          
         @Override
         public void onClick(View view) {
             // Launching News Feed Screen
-            Intent i = new Intent(getApplicationContext(), PhotosActivity.class);
+            Intent i = new Intent(getApplicationContext(), Attendance.class);
             startActivity(i);
         }
-    });*/
+    });
 }
 }

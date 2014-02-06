@@ -1,0 +1,84 @@
+package com.example.time;
+
+import android.os.Bundle;
+import android.annotation.SuppressLint;
+import android.app.ActionBar.LayoutParams;
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.util.AttributeSet;
+import android.view.Menu;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+public class Timer extends Activity{
+    /** Called when the activity is first created. */
+    @SuppressLint("NewApi")
+	@Override
+    public void onCreate(Bundle savedInstanceState) {   
+        super.onCreate(savedInstanceState);
+        setTitle("Android: Ruled/horizonal lines in Textview");
+        
+        Intent intent = getIntent();
+        String message = intent.getStringExtra(MainActivity.SAVEDTEXT);
+
+        // Create the text view
+        TextView textView = new TextView(this);
+        textView.setTextSize(40);
+        textView.setText(message);
+
+        // Set the text view as the activity layout
+        setContentView(textView);
+
+       
+
+        LinearLayout ll = new LinearLayout(this);
+        ll.setOrientation(LinearLayout.VERTICAL);
+        LayoutParams textViewLayoutParams = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+
+        LinedEditText et = new LinedEditText(this, null);
+        et.setText("The name of our country is:)");
+        et.setLayoutParams(textViewLayoutParams);
+        et.setKeyListener(null);
+
+        ll.addView(et);
+        this.setContentView(ll);
+
+    }
+    public class LinedEditText extends EditText {
+        private Rect mRect;
+        private Paint mPaint;
+
+        // we need this constructor for LayoutInflater
+        public LinedEditText(Context context, AttributeSet attrs) {
+            super(context, attrs);
+
+            mRect = new Rect();
+            mPaint = new Paint();
+            mPaint.setStyle(Paint.Style.STROKE);
+            mPaint.setColor(0x800000FF);
+        }
+
+        @Override
+        protected void onDraw(Canvas canvas) {
+            int count = getLineCount();
+            Rect r = mRect;
+            Paint paint = mPaint;
+
+            for (int i = 0; i < count; i++) {
+                int baseline = getLineBounds(i, r);
+
+                canvas.drawLine(r.left, baseline + 1, r.right, baseline + 1, paint);
+            }
+
+            super.onDraw(canvas);
+        }
+    } 
+
+}

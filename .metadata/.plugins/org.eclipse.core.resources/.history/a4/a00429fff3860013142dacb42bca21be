@@ -1,0 +1,47 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity" >
+
+    <EditText
+
+android:id="@+id/textbox"
+
+android:singleLine="false"
+
+android:gravity="top"
+
+android:lines="10"
+
+android:layout_width="fill_parent"
+
+android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/save"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textbox"
+        android:layout_below="@+id/textbox"
+        android:layout_marginTop="16dp"
+        android:onClick="saveClicked"
+        android:text="Save the notes" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/save"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="14dp"
+        android:onClick="onClicked"
+        android:text="Button" />
+
+
+
+</RelativeLayout>

@@ -5,7 +5,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
         <!-- Include Action Bar -->
-        <include layout="@layout/header"/>
+       <!-- <include layout="@layout/header"/> !-->
          
         <!--  Include Fragmented dashboard -->
 
