@@ -60,15 +60,15 @@ public final class R {
         public static final int btn_res=0x7f090015;
         public static final int btn_sch=0x7f090013;
         public static final int button1=0x7f09000a;
-        public static final int home_root=0x7f090006;
+        public static final int home_root=0x7f090007;
         public static final int nday=0x7f09000c;
         public static final int nlec=0x7f090009;
         public static final int panelIconLeft=0x7f090000;
         public static final int panelIconRight=0x7f090003;
         public static final int photo=0x7f090011;
         public static final int photo1=0x7f090012;
-        public static final int retr=0x7f090007;
         public static final int save=0x7f09000e;
+        public static final int temp=0x7f090006;
         public static final int textbox=0x7f09000d;
         public static final int tnday=0x7f090008;
         public static final int tnlec=0x7f09000b;

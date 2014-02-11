@@ -66,7 +66,7 @@ public class MainActivity extends Activity
         @Override
         public void onClick(View view) {
             // Launching News Feed Screen
-            Intent i = new Intent(getApplicationContext(), ResourceActivity.class);
+            Intent i = getPackageManager().getLaunchIntentForPackage("com.dropbox.android");//new Intent(getApplicationContext(), ResourceActivity.class);
             startActivity(i);
         }
     });

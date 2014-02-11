@@ -1,25 +1,21 @@
 package com.example.eduhub;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
-import android.text.InputType;
+import android.util.Log;
 import android.view.Menu;
-import android.view.View;
-import android.widget.EditText;
 import android.widget.HorizontalScrollView;
-import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TableLayout;
-import android.widget.TableRow;
 import android.widget.TableRow.LayoutParams;
 
 public class ExistingTT extends Activity {
 	@Override
+	
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_existing_tt);
@@ -30,12 +26,47 @@ public class ExistingTT extends Activity {
 		    TableLayout ll=new TableLayout(this);
 		    HorizontalScrollView hsv = new HorizontalScrollView(this);
 		    int t=100;
+		    int l=100;
 		    int day= CreateTimeTable.b;
 		    int lec= CreateTimeTable.a;
+		    String inputString = "abc";
+		    int i=0;
 		    
-		    try
-		    { FileInputStream fin = openFileInput("SAVETT.txt");
 		    
+		    
+		    try {
+		        BufferedReader inputReader = new BufferedReader(new InputStreamReader(
+		                openFileInput("SAVETT.txt")));
+		        
+		        StringBuffer stringBuffer = new StringBuffer();                
+		        while ((inputString = inputReader.readLine()) != null) {
+		            stringBuffer.append(inputString + "\n");
+		            //EditText txt = (EditText) findViewById(R.id.temp);
+		            //txt.setText(inputString);
+		        }
+		        } catch (IOException e) {
+		        e.printStackTrace();
+		    }
+		    
+		   System.out.println(inputString);
+		    
+		    
+		   /*StringTokenizer tokenizer = new StringTokenizer(inputString);
+	       String[] arr = new String[tokenizer.countTokens()];
+	       while(tokenizer.hasMoreElements())
+	       {
+	    	  arr[i]= tokenizer.nextToken();
+	    	  i++;
+	       }
+	       i=0;
+	       while(i<arr.length)
+	       { System.out.println(arr[i]+"\n");
+	         i++;
+	       }
+	       */
+		   
+		    
+		   /* 
 		    if(day==1) 
 		       {for(int i=0;i<=lec;i++) 
 			     {  TableRow trow=new TableRow(this);
@@ -61,7 +92,9 @@ public class ExistingTT extends Activity {
 			             }
 	                  
 	                 else 
-			            {EditText e1=new EditText(this);
+			            { 
+	                	  	                	   
+	                	  EditText e1=new EditText(this);
 			              e1.setInputType(InputType.TYPE_DATETIME_VARIATION_TIME);
 			              e1.setId(t);
 			              e1.setTextSize(30);
@@ -69,16 +102,27 @@ public class ExistingTT extends Activity {
 			              e1.setFocusable(false);
 			              t++;
 			              e1.setBackgroundResource(R.drawable.cell_shape);
-			              trow.addView(e1);
 			              EditText e2=new EditText(this);
 			              e2.setId(t);
 			              t++;
 			              e2.setTextSize(30);
 			              e2.setBackgroundResource(R.drawable.cell_shape);
-			              trow.addView(e2);
 			              e2.setEnabled(false);
 			              e2.setFocusable(false);
-			           }
+			              
+			              temp=inputString.split("\\t");
+			              for(int o=0;o<temp.length;o++)
+			              {
+			            	  EditText tt = (EditText) findViewById(l);
+			            	  tt.setText(temp[0]);
+			            	  l++;
+			              }
+			              
+			            
+			              trow.addView(e1);
+			              trow.addView(e2);
+			              
+			            }
 	                 
 			        
 			        ll.addView(trow);
@@ -131,7 +175,6 @@ public class ExistingTT extends Activity {
 			              t++;
 			              e1.setTextSize(30);
 			              e1.setBackgroundResource(R.drawable.cell_shape);
-			              trow.addView(e1);
 			              e1.setEnabled(false);
 			              e1.setFocusable(false);
 			              EditText e2=new EditText(this);
@@ -141,7 +184,6 @@ public class ExistingTT extends Activity {
 			              e2.setBackgroundResource(R.drawable.cell_shape);
 			              e2.setEnabled(false);
 			              e2.setFocusable(false);
-			              trow.addView(e2);
 			              EditText e3=new EditText(this);
 			              e3.setId(t);
 			              t++;
@@ -149,7 +191,20 @@ public class ExistingTT extends Activity {
 			              e3.setEnabled(false);
 			              e3.setFocusable(false);
 			              e3.setBackgroundResource(R.drawable.cell_shape);
+			              
+			              temp=inputString.split("\\t");
+			              for(int o=0;o<temp.length;o++)
+			              {
+			            	  EditText tt = (EditText) findViewById(l);
+			            	  tt.setText(temp[0]);
+			            	  l++;
+			              }
+			              
+			              trow.addView(e1);
+			              trow.addView(e2);
 			              trow.addView(e3);
+			              
+			              
 			            }
 			        ll.addView(trow);
 			        View v = new View(this);
@@ -219,7 +274,6 @@ public class ExistingTT extends Activity {
 				              e1.setFocusable(false);
 				              e1.setTextSize(30);
 				              e1.setBackgroundResource(R.drawable.cell_shape);
-				              trow.addView(e1);
 				              EditText e2=new EditText(this);
 				              e2.setId(t);
 				              e2.setTextSize(30);
@@ -227,7 +281,6 @@ public class ExistingTT extends Activity {
 				              e2.setEnabled(false);
 				              e2.setFocusable(false);
 				              e2.setBackgroundResource(R.drawable.cell_shape);
-				              trow.addView(e2);
 				              EditText e3=new EditText(this);
 				              e3.setId(t);
 				              t++;
@@ -235,7 +288,7 @@ public class ExistingTT extends Activity {
 				              e3.setFocusable(false);
 				              e3.setTextSize(30);
 				              e3.setBackgroundResource(R.drawable.cell_shape);
-				              trow.addView(e3);
+				              
 				              EditText e4=new EditText(this);
 				              e4.setId(t);
 				              t++;
@@ -243,6 +296,18 @@ public class ExistingTT extends Activity {
 				              e4.setFocusable(false);
 				              e4.setTextSize(30);
 				              e4.setBackgroundResource(R.drawable.cell_shape);
+				              
+				              temp=inputString.split("\\t");
+				              for(int o=0;o<temp.length;o++)
+				              {
+				            	  EditText tt = (EditText) findViewById(l);
+				            	  tt.setText(temp[0]);
+				            	  l++;
+				              }
+				              
+				              trow.addView(e1);
+				              trow.addView(e2);
+				              trow.addView(e3);
 				              trow.addView(e4);    
 			        	}
 			        ll.addView(trow);
@@ -318,7 +383,6 @@ public class ExistingTT extends Activity {
 			              e1.setBackgroundResource(R.drawable.cell_shape);
 			              e1.setEnabled(false);
 			              e1.setFocusable(false);
-			              trow.addView(e1);
 			              EditText e2=new EditText(this);
 			              e2.setTextSize(30);
 			              e2.setEnabled(false);
@@ -326,7 +390,6 @@ public class ExistingTT extends Activity {
 			              e2.setId(t);
 			              t++;
 			              e2.setBackgroundResource(R.drawable.cell_shape);
-			              trow.addView(e2);
 			              EditText e3=new EditText(this);
 			              e3.setEnabled(false);
 			              e3.setFocusable(false);
@@ -334,7 +397,6 @@ public class ExistingTT extends Activity {
 			              e3.setId(t);
 			              t++;
 			              e3.setBackgroundResource(R.drawable.cell_shape);
-			              trow.addView(e3);
 			              EditText e4=new EditText(this);
 			              e4.setId(t);
 			              e4.setTextSize(30);
@@ -342,15 +404,27 @@ public class ExistingTT extends Activity {
 			              e4.setFocusable(false);
 			              t++;
 			              e4.setBackgroundResource(R.drawable.cell_shape);
-			              trow.addView(e4);
-			        	  EditText e5=new EditText(this);
+			              EditText e5=new EditText(this);
 			              e5.setId(t);
 			              e5.setEnabled(false);
 			              e5.setFocusable(false);
 			              e5.setTextSize(30);
 			              t++;
 			              e5.setBackgroundResource(R.drawable.cell_shape);
-			              trow.addView(e5);                
+			              
+			              temp=inputString.split("\\t");
+			              for(int o=0;o<temp.length;o++)
+			              {
+			            	  EditText tt = (EditText) findViewById(l);
+			            	  tt.setText(temp[0]);
+			            	  l++;
+			              }
+			              
+			              trow.addView(e1);
+			              trow.addView(e2);
+			              trow.addView(e3);
+			              trow.addView(e4);
+			        	  trow.addView(e5);                
 			        }
 			        ll.addView(trow);
 			        View v = new View(this);
@@ -434,7 +508,6 @@ public class ExistingTT extends Activity {
 		              e1.setEnabled(false);
 		              e1.setFocusable(false);
 		              e1.setBackgroundResource(R.drawable.cell_shape);
-		              trow.addView(e1);
 		              EditText e2=new EditText(this);
 		              e2.setId(t);
 		              e2.setEnabled(false);
@@ -442,7 +515,6 @@ public class ExistingTT extends Activity {
 		              e2.setTextSize(30);
 		              t++;
 		              e2.setBackgroundResource(R.drawable.cell_shape);
-		              trow.addView(e2);
 		              EditText e3=new EditText(this);
 		              e3.setId(t);
 		              e3.setTextSize(30);
@@ -450,7 +522,6 @@ public class ExistingTT extends Activity {
 		              e3.setFocusable(false);
 		              t++;
 		              e3.setBackgroundResource(R.drawable.cell_shape);
-		              trow.addView(e3);
 		              EditText e4=new EditText(this);
 		              e4.setTextSize(30);
 		              e4.setEnabled(false);
@@ -458,15 +529,13 @@ public class ExistingTT extends Activity {
 		              e4.setId(t);
 		              t++;
 		              e4.setBackgroundResource(R.drawable.cell_shape);
-		              trow.addView(e4);
-		        	  EditText e5=new EditText(this);
+		              EditText e5=new EditText(this);
 		              e5.setId(t);
 		              e5.setTextSize(30);
 		              e5.setEnabled(false);
 		              e5.setFocusable(false);
 		              t++;
 		              e5.setBackgroundResource(R.drawable.cell_shape);
-		              trow.addView(e5);
 		              EditText e6=new EditText(this);
 		              e6.setId(t);
 		              t++;
@@ -474,7 +543,23 @@ public class ExistingTT extends Activity {
 		              e6.setFocusable(false);
 		              e6.setTextSize(30);
 		              e6.setBackgroundResource(R.drawable.cell_shape);
-		              trow.addView(e6);
+		              
+		              
+		                temp=inputString.split("\\t");
+			              for(int o=0;o<temp.length;o++)
+			              {
+			            	  EditText tt = (EditText) findViewById(l);
+			            	  tt.setText(temp[0]);
+			            	  l++;
+			              }
+		                
+		              
+			              trow.addView(e1);
+			              trow.addView(e2);
+			              trow.addView(e3);
+			              trow.addView(e4);
+			        	  trow.addView(e5);
+			              trow.addView(e6);
 		             
 			         }
 			        ll.addView(trow);
@@ -561,6 +646,7 @@ public class ExistingTT extends Activity {
 		                
 		                t++;
 		                tv7.setBackgroundResource(R.drawable.cell_shape);
+		                
 		                trow.addView(tv7);
 		            }
 	                
@@ -620,6 +706,15 @@ public class ExistingTT extends Activity {
 	              e7.setFocusable(false);
 	              t++;
 	              e7.setBackgroundResource(R.drawable.cell_shape);
+	              
+	              temp=inputString.split("\\t");
+	              for(int o=0;o<temp.length;o++)
+	              {
+	            	  EditText tt = (EditText) findViewById(l);
+	            	  tt.setText(temp[0]);
+	            	  l++;
+	              }
+	              
 	              trow.addView(e7);
 	              
 		       }
@@ -629,21 +724,16 @@ public class ExistingTT extends Activity {
 		        v.setLayoutParams(params);
 		        v.setBackgroundColor(getResources().getColor(android.R.color.transparent));
 		        ll.addView(v);
-		    }
-	       }
+		      }
+	         }
 		    
-		  }
-		    catch ( IOException e)
-		    {
-		    	e.printStackTrace();
-		    }
+		 
 		    
 		    hsv.addView(ll);
 		    sv.addView(hsv);
 		    sv.setBackgroundResource(R.drawable.blackboard);
-		    setContentView(sv);
-		
-	}
+		    setContentView(sv);  */
+		} 
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

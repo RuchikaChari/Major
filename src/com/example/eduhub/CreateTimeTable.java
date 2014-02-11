@@ -658,8 +658,8 @@ public class CreateTimeTable extends Activity {
 	            	  {    		
 	            		EditText editText = (EditText) findViewById(t);
 	            		str1= editText.getText().toString();
-	            		fos.write("\r\n".getBytes());
 	            		fos.write(str1.getBytes());
+	            		fos.write("\t".getBytes());
 	            		t++;
 	            	  }
 	            	
@@ -667,8 +667,9 @@ public class CreateTimeTable extends Activity {
 	            	{     		
 	            		EditText editText = (EditText) findViewById(t);
 	            		str1= editText.getText().toString();
-	            		fos.write("\t".getBytes());
 	            		fos.write(str1.getBytes());
+	            		
+	            		fos.write("\t".getBytes());
 	            		t++;
 	                }         	
 	              prod--;
@@ -680,7 +681,10 @@ public class CreateTimeTable extends Activity {
      			e.printStackTrace();
      		}
 	        
-	      
+	         Intent i = new Intent(getApplicationContext(), MainActivity.class);
+	         i.addFlags(i.FLAG_ACTIVITY_CLEAR_TOP);
+	         startActivity(i);
+
 	         
 	        }
 	    }); }
