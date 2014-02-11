@@ -3,10 +3,10 @@ package com.example.eduhub;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.widget.HorizontalScrollView;
 import android.widget.ScrollView;
@@ -48,10 +48,8 @@ public class ExistingTT extends Activity {
 		        e.printStackTrace();
 		    }
 		    
-		   System.out.println(inputString);
 		    
-		    
-		   /*StringTokenizer tokenizer = new StringTokenizer(inputString);
+		   StringTokenizer tokenizer = new StringTokenizer(inputString);
 	       String[] arr = new String[tokenizer.countTokens()];
 	       while(tokenizer.hasMoreElements())
 	       {
@@ -63,7 +61,7 @@ public class ExistingTT extends Activity {
 	       { System.out.println(arr[i]+"\n");
 	         i++;
 	       }
-	       */
+	       
 		   
 		    
 		   /* 
